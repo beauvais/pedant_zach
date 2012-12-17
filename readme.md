@@ -8,10 +8,12 @@ The data structure is very simple, the search page displays a list of <code><h1>
 
 The results are stored in python dict form with three keys:
 
-<code>data = {
+<code>
+    data = {
         'uri': link[0].attrib['href'],
         'post-title': str(text),
         'search-term': str(term)
-    }</code>
+    }
+    </code>
     
 [1]: https://scraperwiki.com/scrapers/search_zachs_blog_for_pedantry/
