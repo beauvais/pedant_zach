@@ -10,9 +10,13 @@ The results are stored in python dict form with three keys:
 
 <code>
     data = {
+    
         'uri': link[0].attrib['href'],
+        
         'post-title': str(text),
+        
         'search-term': str(term)
+        
     }
     </code>
     
