@@ -12,22 +12,24 @@ blog posts containing a search term
 
 
 term = "pedantry"
-site = "http://zachbeauvais.com"
+site = "http://www.zachbeauvais.com/"
+
+# Passing paramaters to the site uri using "payload" dict:
 
 payload = {'s': str(term), 'submit': 'Search'}
-r = requests.get(site, params=payload)
+r = requests.get(site, params=payload)  # This'll be the results page
 html = r.text
-root = lxml.html.fromstring(html)
+root = lxml.html.fromstring(html)  # parsing the HTML into the var root
 
-for el in root.cssselect("h1.entry-title a"):
-    link = el.cssselect("a")
-    text = el.text_content()
+for i in root.cssselect("h1.entry-title a"):
+    link = i.cssselect("a")
+    text = i.text_content()
     data = {
         'uri': link[0].attrib['href'],
         'post-title': str(text),
         'search-term': str(term)
     }
-    if el is not None:
+    if i is not None:
         print link
         print text
         print data
